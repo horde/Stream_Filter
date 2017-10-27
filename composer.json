@@ -1,5 +1,5 @@
 {
-    "name": "horde/horde-stream-filter",
+    "name": "horde/stream-filter",
     "description": "Horde Stream filters",
     "type": "library",
     "homepage": "https://pear.horde.org",
@@ -28,7 +28,7 @@
         "php": "^5.3 || ^7"
     },
     "suggest": {
-        "pear-pear.horde.org/Horde_Test": "^2.1@stable"
+        "pear-pear.horde.org/Horde_Test": "^2.1"
     },
     "replace": {
         "pear-pear.horde.org/Horde_Stream_Filter": "2.*",
