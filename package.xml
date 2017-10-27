@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-20</date>
+ <date>2017-10-27</date>
  <version>
   <release>2.0.5</release>
   <api>1.1.0</api>
@@ -30,6 +30,15 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="doc">
+    <dir name="Horde">
+     <dir name="Stream">
+      <dir name="Filter">
+       <file name="CHANGES" role="doc" />
+      </dir> <!-- /doc/Horde/Stream/Filter -->
+     </dir> <!-- /doc/Horde/Stream -->
+    </dir> <!-- /doc/Horde -->
+   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Horde">
      <dir name="Stream">
@@ -83,6 +92,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Stream/Filter/CHANGES" />
    <install as="Horde/Stream/Filter/Bin2hex.php" name="lib/Horde/Stream/Filter/Bin2hex.php" />
    <install as="Horde/Stream/Filter/Crc32.php" name="lib/Horde/Stream/Filter/Crc32.php" />
    <install as="Horde/Stream/Filter/Eol.php" name="lib/Horde/Stream/Filter/Eol.php" />
@@ -298,7 +308,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2017-10-20</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
    </notes>
