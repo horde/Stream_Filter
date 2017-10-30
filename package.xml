@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2016-02-02</date>
+ <date>2017-10-30</date>
  <version>
   <release>2.0.5</release>
   <api>1.1.0</api>
@@ -35,6 +35,7 @@
     <dir name="Horde">
      <dir name="Stream">
       <dir name="Filter">
+       <file name="CHANGES" role="doc" />
        <file name="COPYING" role="doc" />
       </dir> <!-- /doc/Horde/Stream/Filter -->
      </dir> <!-- /doc/Horde/Stream -->
@@ -93,6 +94,7 @@
  </dependencies>
  <phprelease>
   <filelist>
+   <install as="CHANGES" name="doc/Horde/Stream/Filter/CHANGES" />
    <install as="COPYING" name="doc/Horde/Stream/Filter/COPYING" />
    <install as="Horde/Stream/Filter/Bin2hex.php" name="lib/Horde/Stream/Filter/Bin2hex.php" />
    <install as="Horde/Stream/Filter/Crc32.php" name="lib/Horde/Stream/Filter/Crc32.php" />
@@ -309,7 +311,7 @@
    <stability>
     <release>stable</release>
     <api>stable</api></stability>
-   <date>2016-02-02</date>
+   <date>2017-10-30</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
 * 
