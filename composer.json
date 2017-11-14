@@ -1,8 +1,8 @@
 {
     "name": "horde/stream-filter",
-    "description": "Horde Stream filters",
+    "description": "PHP stream filters library",
     "type": "library",
-    "homepage": "https://pear.horde.org",
+    "homepage": "https://www.horde.org/libraries/Horde_Stream_Filter",
     "license": "LGPL-2.1",
     "authors": [
         {
@@ -17,7 +17,7 @@
         }
     ],
     "version": "2.0.5",
-    "time": "2016-02-02",
+    "time": "2017-11-14",
     "repositories": [
         {
             "type": "pear",
