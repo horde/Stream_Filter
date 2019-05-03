@@ -2,7 +2,7 @@
 id: Stream_Filter
 name: Stream_Filter
 full: PHP stream filters library
-description: A collection of various stream filters.
+description: A library of various stream filters.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Stream_Filter
