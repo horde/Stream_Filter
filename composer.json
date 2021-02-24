@@ -34,9 +34,6 @@
     "autoload": {
         "psr-0": {
             "Horde_Stream_Filter": "lib/"
-        },
-        "psr-4": {
-            "Horde\\Stream\\Filter\\": "src/"
         }
     }
 }
