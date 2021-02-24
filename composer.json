@@ -1,7 +1,7 @@
 {
-    "name": "horde/stream-filter",
+    "name": "horde/stream_filter",
     "description": "PHP stream filters library",
-    "type": "library",
+    "type": "horde-library",
     "homepage": "https://www.horde.org/libraries/Horde_Stream_Filter",
     "license": "LGPL-2.1",
     "authors": [
@@ -16,27 +16,27 @@
             "role": "lead"
         }
     ],
-    "version": "2.0.5",
-    "time": "2017-11-11",
+    "version": "3.0.0alpha1",
+    "time": "2021-02-24",
     "repositories": [
         {
-            "type": "pear",
-            "url": "https://pear.horde.org"
+            "type": "composer",
+            "url": "https://horde-satis.maintaina.com/"
         }
     ],
     "require": {
+        "horde/horde-installer-plugin": "*",
         "php": "^5.3 || ^7"
     },
     "suggest": {
-        "pear-pear.horde.org/Horde_Test": "^2.1"
-    },
-    "replace": {
-        "pear-pear.horde.org/Horde_Stream_Filter": "2.*",
-        "pear-horde/Horde_Stream_Filter": "2.*"
+        "horde/test": "^2.1"
     },
     "autoload": {
         "psr-0": {
             "Horde_Stream_Filter": "lib/"
+        },
+        "psr-4": {
+            "Horde\\Stream\\Filter\\": "src/"
         }
     }
 }
