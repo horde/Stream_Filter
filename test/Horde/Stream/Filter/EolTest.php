@@ -4,24 +4,26 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+namespace Horde\Stream\Filter;
+use Horde_Test_Case as TestCase;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_EolTest extends Horde_Test_Case
+class EolTest extends TestCase
 {
     public $fp;
 
-    public function setup()
+    public function setup(): void
     {
         stream_filter_register('horde_eol', 'Horde_Stream_Filter_Eol');
         $this->fp = fopen('php://temp', 'r+');
         fwrite($this->fp, "A\r\nB\rC\nD\r\n\r\nE\r\rF\n\nG\r\n\n\r\nH\r\n\r\r\nI");
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         fclose($this->fp);
     }
@@ -29,9 +31,39 @@ class Horde_Stream_Filter_EolTest extends Horde_Test_Case
     public static function lineEndingProvider()
     {
         return array(
-            array("\r", "ABCDEFGHI"),
+            array("\r", "A
+B
+C
+D
+
+E
+
+F
+
+G
+
+
+H
+
+
+I"),
             array("\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
-            array("\r\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
+            array("\r\n", "A
+\nB
+\nC
+\nD
+\n
+\nE
+\n
+\nF
+\n
+\nG
+\n
+\n
+\nH
+\n
+\n
+\nI"),
             array("", "ABCDEFGHI"),
         );
     }

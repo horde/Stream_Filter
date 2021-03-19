@@ -4,18 +4,21 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+namespace Horde\Stream\Filter;
+use Horde_Test_Case as TestCase;
+use \stdClass;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_Crc32Test extends Horde_Test_Case
+class Crc32Test extends TestCase
 {
     public $fp;
     public $testdata;
 
-    public function setup()
+    public function setup(): void
     {
         stream_filter_register('horde_crc32', 'Horde_Stream_Filter_Crc32');
 

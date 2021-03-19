@@ -4,18 +4,20 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+namespace Horde\Stream\Filter;
+use Horde_Test_Case as TestCase;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_Bin2hexTest extends Horde_Test_Case
+class Bin2hexTest extends TestCase
 {
     public $fp;
     public $testdata;
 
-    public function setup()
+    public function setup(): void
     {
         stream_filter_register('horde_bin2hex', 'Horde_Stream_Filter_Bin2hex');
 

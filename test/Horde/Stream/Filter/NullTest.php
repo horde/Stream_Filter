@@ -4,18 +4,20 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+namespace Horde\Stream\Filter;
+use Horde_Test_Case as TestCase;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_NullTest extends Horde_Test_Case
+class NullTest extends TestCase
 {
     public $fp;
     public $testdata;
 
-    public function setup()
+    public function setup(): void
     {
         stream_filter_register('horde_null', 'Horde_Stream_Filter_Null');
 
