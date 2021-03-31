@@ -31,7 +31,7 @@ class EolTest extends TestCase
     public static function lineEndingProvider()
     {
         return array(
-            array("\r", "A
+            array("\n", "A
 B
 C
 D
@@ -48,22 +48,22 @@ H
 
 I"),
             array("\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
-            array("\r\n", "A
-\nB
-\nC
-\nD
-\n
-\nE
-\n
-\nF
-\n
-\nG
-\n
-\n
-\nH
-\n
-\n
-\nI"),
+            array("\n", "A
+B
+C
+D
+
+E
+
+F
+
+G
+
+
+H
+
+
+I"),
             array("", "ABCDEFGHI"),
         );
     }
