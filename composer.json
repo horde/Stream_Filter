@@ -4,7 +4,7 @@
     "description": "PHP stream filters library",
     "type": "library",
     "homepage": "https://www.horde.org/libraries/Horde_Stream_Filter",
-    "license": "LGPL-2.1",
+    "license": "LGPL-2.1-only",
     "authors": [
         {
             "name": "Chuck Hagenbuch",
@@ -25,7 +25,7 @@
         }
     ],
     "require": {
-        "php": "^7.0 || ^8.0"
+        "php": "^7.4 || ^8"
     },
     "suggest": {
         "horde/test": "^3 || dev-FRAMEWORK_6_0"
