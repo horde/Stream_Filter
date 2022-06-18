@@ -1,6 +1,8 @@
-----------
-v2.0.5-git
-----------
+------
+v2.0.5
+------
+
+[mjr] Silence deprecation notices for PHP 8.1 tentative return types (PR #1).
 
 
 ------

@@ -3,7 +3,7 @@
  <name>Horde_Stream_Filter</name>
  <channel>pear.horde.org</channel>
  <summary>PHP stream filters library</summary>
- <description>A collection of various stream filters.</description>
+ <description>A library of various stream filters.</description>
  <lead>
   <name>Chuck Hagenbuch</name>
   <user>chuck</user>
@@ -16,7 +16,7 @@
   <email>slusarz@horde.org</email>
   <active>no</active>
  </lead>
- <date>2017-11-14</date>
+ <date>2022-06-18</date>
  <version>
   <release>2.0.5</release>
   <api>1.1.0</api>
@@ -27,7 +27,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
  <notes>
-* 
+* [mjr] Silence deprecation notices for PHP 8.1 tentative return types (PR #1).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -188,10 +188,12 @@
   <release>
    <version>
     <release>1.1.0</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2011-11-22</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -201,10 +203,12 @@
   <release>
    <version>
     <release>2.0.0alpha1</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>alpha</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2012-07-06</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -214,10 +218,12 @@
   <release>
    <version>
     <release>2.0.0beta1</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>beta</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2012-07-19</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -227,10 +233,12 @@
   <release>
    <version>
     <release>2.0.0beta2</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>beta</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2012-10-12</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -240,10 +248,12 @@
   <release>
    <version>
     <release>2.0.0</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2012-10-30</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -253,10 +263,12 @@
   <release>
    <version>
     <release>2.0.1</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2012-11-19</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -266,10 +278,12 @@
   <release>
    <version>
     <release>2.0.2</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2013-09-13</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -279,10 +293,12 @@
   <release>
    <version>
     <release>2.0.3</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2015-01-09</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -292,10 +308,12 @@
   <release>
    <version>
     <release>2.0.4</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
+    <api>stable</api>
+   </stability>
    <date>2016-02-02</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
@@ -305,14 +323,16 @@
   <release>
    <version>
     <release>2.0.5</release>
-    <api>1.1.0</api></version>
+    <api>1.1.0</api>
+   </version>
    <stability>
     <release>stable</release>
-    <api>stable</api></stability>
-   <date>2017-11-14</date>
+    <api>stable</api>
+   </stability>
+   <date>2017-10-20</date>
    <license uri="http://www.horde.org/licenses/lgpl21">LGPL-2.1</license>
    <notes>
-* 
+* [mjr] Silence deprecation notices for PHP 8.1 tentative return types (PR #1).
    </notes>
   </release>
  </changelog>
