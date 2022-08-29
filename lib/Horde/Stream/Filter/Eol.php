@@ -47,11 +47,11 @@ class Horde_Stream_Filter_Eol extends php_user_filter
     protected $_search;
 
     /**
-     * First character of a multi-character EOL.
+     * Partial EOL to be processed in the next iteration
      *
      * @var string
      */
-    protected $_split = null;
+    private $_prependNext = '';
 
     /**
      * @see stream_filter_register()
@@ -72,9 +72,6 @@ class Horde_Stream_Filter_Eol extends php_user_filter
         } else {
             $this->_search = array("\r\n", "\r", "\n");
             $this->_replace = array("\n", "\n", $eol);
-            if (strlen($eol) > 1) {
-                $this->_split = $eol[0];
-            }
         }
 
         return true;
@@ -87,9 +84,15 @@ class Horde_Stream_Filter_Eol extends php_user_filter
     public function filter($in, $out, &$consumed, $closing)
     {
         while ($bucket = stream_bucket_make_writeable($in)) {
-            if (!is_null($this->_split) &&
-                ($bucket->data[$bucket->datalen - 1] == $this->_split)) {
+            $bucket->data = $this->_prependNext . $bucket->data;
+            $this->_prependNext = '';
+            if (
+                !$closing &&
+                in_array("\r\n", $this->_search) &&
+                ($bucket->data[$bucket->datalen - 1] == "\r")
+            ) {
                 $bucket->data = substr($bucket->data, 0, -1);
+                $this->_prependNext = "\r";
             }
 
             $bucket->data = str_replace($this->_search, $this->_replace, $bucket->data);

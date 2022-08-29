@@ -110,4 +110,18 @@ I"),
         );
     }
 
+    public function testUnixStyleNewLineSubstitution()
+    {
+        $test = str_repeat(str_repeat("A", 1) . "\r\n", 4000);
+        $expectedResult = str_repeat(str_repeat("A", 1) . "\n", 4000);
+
+        rewind($this->fp);
+        fwrite($this->fp, $test);
+
+        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => "\n"));
+        rewind($this->fp);
+
+        $this->assertEquals($expectedResult, stream_get_contents($this->fp));
+    }
+
 }
