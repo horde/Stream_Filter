@@ -29,9 +29,39 @@ class Horde_Stream_Filter_EolTest extends Horde_Test_Case
     public static function lineEndingProvider()
     {
         return array(
-            array("\r", "ABCDEFGHI"),
+            array("\r", "A
+B
+C
+D
+
+E
+
+F
+
+G
+
+
+H
+
+
+I"),
             array("\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
-            array("\r\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
+            array("\r\n", "A
+\nB
+\nC
+\nD
+\n
+\nE
+\n
+\nF
+\n
+\nG
+\n
+\n
+\nH
+\n
+\n
+\nI"),
             array("", "ABCDEFGHI"),
         );
     }
@@ -76,6 +106,20 @@ class Horde_Stream_Filter_EolTest extends Horde_Test_Case
                 . fread($this->fp, 2)
                 . fread($this->fp, 100)
         );
+    }
+
+    public function testUnixStyleNewLineSubstitution()
+    {
+        $test = str_repeat(str_repeat("A", 1) . "\r\n", 4000);
+        $expectedResult = str_repeat(str_repeat("A", 1) . "\n", 4000);
+
+        rewind($this->fp);
+        fwrite($this->fp, $test);
+
+        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => "\n"));
+        rewind($this->fp);
+
+        $this->assertEquals($expectedResult, stream_get_contents($this->fp));
     }
 
 }
