@@ -2,7 +2,8 @@
 v3.0.0alpha4
 ------------
 
-
+[rla] Enable PHP 8.x compat.
+|+
 
 
 ------------
@@ -20,6 +21,13 @@ v3.0.0alpha2
 ------------
 v3.0.0alpha1
 ------------
+
+
+------
+v2.0.5
+------
+
+[mjr] Silence deprecation notices for PHP 8.1 tentative return types (PR #1).
 
 
 ------

@@ -1,5 +1,4 @@
 {
-    "minimum-stability": "dev",
     "name": "horde/stream_filter",
     "description": "PHP stream filters library",
     "type": "library",
@@ -17,22 +16,33 @@
             "role": "lead"
         }
     ],
-    "time": "2021-03-13",
+    "time": "2022-11-04",
     "repositories": [
         {
             "type": "composer",
-            "url": "https://horde-satis.maintaina.com/"
+            "url": "https://horde-satis.maintaina.com"
         }
     ],
     "require": {
         "php": "^7.4 || ^8"
     },
+    "require-dev": {},
     "suggest": {
         "horde/test": "^3 || dev-FRAMEWORK_6_0"
     },
     "autoload": {
         "psr-0": {
             "Horde_Stream_Filter": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Horde\\Stream\\Filter\\Test\\": "test/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "horde/horde-installer-plugin": true
         }
     }
 }
