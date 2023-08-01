@@ -15,7 +15,7 @@ class Horde_Stream_Filter_Crc32Test extends Horde_Test_Case
     public $fp;
     public $testdata;
 
-    public function setup()
+    protected function setup(): void
     {
         stream_filter_register('horde_crc32', 'Horde_Stream_Filter_Crc32');
 

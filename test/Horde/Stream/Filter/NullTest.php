@@ -15,7 +15,7 @@ class Horde_Stream_Filter_NullTest extends Horde_Test_Case
     public $fp;
     public $testdata;
 
-    public function setup()
+    protected function setup(): void
     {
         stream_filter_register('horde_null', 'Horde_Stream_Filter_Null');
 

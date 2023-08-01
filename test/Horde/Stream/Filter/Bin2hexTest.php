@@ -15,7 +15,7 @@ class Horde_Stream_Filter_Bin2hexTest extends Horde_Test_Case
     public $fp;
     public $testdata;
 
-    public function setup()
+    protected function setup(): void
     {
         stream_filter_register('horde_bin2hex', 'Horde_Stream_Filter_Bin2hex');
 

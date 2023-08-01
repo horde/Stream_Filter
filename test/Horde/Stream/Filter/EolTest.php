@@ -14,14 +14,14 @@ class Horde_Stream_Filter_EolTest extends Horde_Test_Case
 {
     public $fp;
 
-    public function setup()
+    protected function setup(): void
     {
         stream_filter_register('horde_eol', 'Horde_Stream_Filter_Eol');
         $this->fp = fopen('php://temp', 'r+');
         fwrite($this->fp, "A\r\nB\rC\nD\r\n\r\nE\r\rF\n\nG\r\n\n\r\nH\r\n\r\r\nI");
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
         fclose($this->fp);
     }
