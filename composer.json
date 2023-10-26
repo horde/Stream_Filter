@@ -19,20 +19,14 @@
     "version": "2.0.5",
     "time": "2017-11-11",
     "repositories": [
-        {
-            "type": "pear",
-            "url": "https://pear.horde.org"
-        }
     ],
     "require": {
         "php": "^5.3 || ^7"
     },
-    "suggest": {
-        "pear-pear.horde.org/Horde_Test": "^2.1"
+    "require-dev": {
+        "horde/test": "^2.1"
     },
     "replace": {
-        "pear-pear.horde.org/Horde_Stream_Filter": "2.*",
-        "pear-horde/Horde_Stream_Filter": "2.*"
     },
     "autoload": {
         "psr-0": {
