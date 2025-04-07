@@ -112,8 +112,8 @@ I"),
 
     public function testUnixStyleNewLineSubstitution()
     {
-        $test = str_repeat(str_repeat("A", 1) . "\r\n", 4000);
-        $expectedResult = str_repeat(str_repeat("A", 1) . "\n", 4000);
+        $test = str_repeat("A\r\n", 4000);
+        $expectedResult = str_repeat("A\n", 4000);
 
         rewind($this->fp);
         fwrite($this->fp, $test);
