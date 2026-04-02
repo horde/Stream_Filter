@@ -88,10 +88,107 @@ class EolTest extends TestCase
         rewind($this->fp);
         fwrite($this->fp, $test);
 
-        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => "\n"));
+        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\n"]);
         rewind($this->fp);
 
         $this->assertEquals($expectedResult, stream_get_contents($this->fp));
+    }
+
+    /**
+     * Test CRLF split at bucket boundary (byte 8191).
+     *
+     * This is the specific case that PR #2 fixes. The \r from \r\n falls
+     * at the end of the first bucket (8192 bytes), causing incorrect
+     * double newline conversion in buggy implementation.
+     */
+    public function testCrlfBucketBoundarySplit()
+    {
+        // 2730 * 3 bytes = 8190 bytes, then X\r\n crosses boundary
+        $test = str_repeat("A\r\n", 2730) . "X\r\n" . "END";
+        $expected = str_repeat("A\n", 2730) . "X\n" . "END";
+
+        rewind($this->fp);
+        ftruncate($this->fp, 0);
+        fwrite($this->fp, $test);
+
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\n"]);
+        rewind($this->fp);
+
+        $this->assertEquals($expected, stream_get_contents($this->fp));
+    }
+
+    /**
+     * Test trailing bare \r at end of stream.
+     */
+    public function testTrailingCarriageReturn()
+    {
+        $test = "Line1\r\nLine2\r";
+        $expected = "Line1\nLine2\n";
+
+        rewind($this->fp);
+        ftruncate($this->fp, 0);
+        fwrite($this->fp, $test);
+
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\n"]);
+        rewind($this->fp);
+
+        $this->assertEquals($expected, stream_get_contents($this->fp));
+    }
+
+    /**
+     * Test conversion to CRLF (multi-character target EOL).
+     *
+     * Ensures original Bug #12673 fix still works.
+     */
+    public function testConversionToMultiCharEol()
+    {
+        $test = str_repeat("A\n", 4000);
+        $expected = str_repeat("A\r\n", 4000);
+
+        rewind($this->fp);
+        ftruncate($this->fp, 0);
+        fwrite($this->fp, $test);
+
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\r\n"]);
+        rewind($this->fp);
+
+        $this->assertEquals($expected, stream_get_contents($this->fp));
+    }
+
+    /**
+     * Test double CRLF sequences.
+     */
+    public function testDoubleCrlf()
+    {
+        $test = "A\r\n\r\nB";
+        $expected = "A\n\nB";
+
+        rewind($this->fp);
+        ftruncate($this->fp, 0);
+        fwrite($this->fp, $test);
+
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\n"]);
+        rewind($this->fp);
+
+        $this->assertEquals($expected, stream_get_contents($this->fp));
+    }
+
+    /**
+     * Test CR-only input conversion.
+     */
+    public function testCarriageReturnOnly()
+    {
+        $test = "A\rB\rC";
+        $expected = "A\nB\nC";
+
+        rewind($this->fp);
+        ftruncate($this->fp, 0);
+        fwrite($this->fp, $test);
+
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\n"]);
+        rewind($this->fp);
+
+        $this->assertEquals($expected, stream_get_contents($this->fp));
     }
 
 }
