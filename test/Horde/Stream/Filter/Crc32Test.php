@@ -1,17 +1,21 @@
 <?php
-/**
- * @category   Horde
- * @package    Stream_Filter
- * @subpackage UnitTests
- */
-namespace Horde\Stream\Filter;
-use Horde_Test_Case as TestCase;
-use \stdClass;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
+ */
+
+namespace Horde\Stream\Filter;
+
+use Horde_Test_Case as TestCase;
+use stdClass;
+
+/**
+ * @category   Horde
+ * @package    Stream_Filter
+ * @subpackage UnitTests
+ * @coversNothing
  */
 class Crc32Test extends TestCase
 {
@@ -30,11 +34,12 @@ class Crc32Test extends TestCase
 
     public function testCrc32()
     {
-        $params = new stdClass;
+        $params = new stdClass();
         $filter = stream_filter_prepend($this->fp, 'horde_crc32', STREAM_FILTER_READ, $params);
 
         rewind($this->fp);
-        while (fread($this->fp, 1024)) {}
+        while (fread($this->fp, 1024)) {
+        }
 
         $this->assertObjectHasAttribute('crc32', $params);
 

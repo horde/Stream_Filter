@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2009-2026 Horde LLC (http://www.horde.org/)
  *
@@ -35,7 +36,7 @@
  * @license   http://www.horde.org/licenses/lgpl21 LGPL 2.1
  * @package   Stream_Filter
  */
-class Horde_Stream_Filter_Eol extends \php_user_filter
+class Horde_Stream_Filter_Eol extends php_user_filter
 {
     /**
      * EOL patterns to search for in input stream.
@@ -120,9 +121,9 @@ class Horde_Stream_Filter_Eol extends \php_user_filter
             // If bucket ends with \r and we're searching for \r\n,
             // save the \r for next bucket (might be \r|\n split)
             if (
-                !$closing &&
-                in_array("\r\n", $this->_search) &&
-                ($bucket->data[$bucket->datalen - 1] == "\r")
+                !$closing
+                && in_array("\r\n", $this->_search)
+                && ($bucket->data[$bucket->datalen - 1] == "\r")
             ) {
                 $bucket->data = substr($bucket->data, 0, -1);
                 $this->_prependNext = "\r";

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Stream filter class to remove null (\0) values.
  *
@@ -12,7 +13,7 @@
  *   - replace: (string) The string to use to replace null characters with.
  *          DEFAULT: ''
  *
- * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2012-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -44,9 +45,8 @@ class Horde_Stream_Filter_Null extends php_user_filter
     #[ReturnTypeWillChange]
     public function onCreate()
     {
-        $this->_replace = isset($this->params->replace)
-            ? $this->params->replace
-            : '';
+        $this->_replace = $this->params->replace
+            ?? '';
 
         return true;
     }

@@ -1,16 +1,20 @@
 <?php
+
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+
 namespace Horde\Stream\Filter;
+
 use Horde_Test_Case as TestCase;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
+ * @coversNothing
  */
 class Bin2hexTest extends TestCase
 {

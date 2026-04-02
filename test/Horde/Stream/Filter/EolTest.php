@@ -1,16 +1,20 @@
 <?php
+
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
+
 namespace Horde\Stream\Filter;
+
 use Horde_Test_Case as TestCase;
 
 /**
  * @category   Horde
  * @package    Stream_Filter
  * @subpackage UnitTests
+ * @coversNothing
  */
 class EolTest extends TestCase
 {
@@ -30,12 +34,12 @@ class EolTest extends TestCase
 
     public static function lineEndingProvider()
     {
-        return array(
-            array("\r", "A\rB\rC\rD\r\rE\r\rF\r\rG\r\r\rH\r\r\rI"),
-            array("\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"),
-            array("\r\n", "A\r\nB\r\nC\r\nD\r\n\r\nE\r\n\r\nF\r\n\r\nG\r\n\r\n\r\nH\r\n\r\n\r\nI"),
-            array("", "ABCDEFGHI"),
-        );
+        return [
+            ["\r", "A\rB\rC\rD\r\rE\r\rF\r\rG\r\r\rH\r\r\rI"],
+            ["\n", "A\nB\nC\nD\n\nE\n\nF\n\nG\n\n\nH\n\n\nI"],
+            ["\r\n", "A\r\nB\r\nC\r\nD\r\n\r\nE\r\n\r\nF\r\n\r\nG\r\n\r\n\r\nH\r\n\r\n\r\nI"],
+            ["", "ABCDEFGHI"],
+        ];
     }
 
     /**
@@ -43,7 +47,7 @@ class EolTest extends TestCase
      */
     public function testFilterLineEndings($eol, $expected)
     {
-        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => $eol));
+        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => $eol]);
         rewind($this->fp);
         $this->assertEquals($expected, stream_get_contents($this->fp));
     }
@@ -55,7 +59,7 @@ class EolTest extends TestCase
         rewind($this->fp);
         fwrite($this->fp, $test);
 
-        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => "\r\n"));
+        $filter = stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\r\n"]);
         rewind($this->fp);
 
         $this->assertEquals($test, stream_get_contents($this->fp));
@@ -66,7 +70,7 @@ class EolTest extends TestCase
         ftruncate($this->fp, 0);
         fwrite($this->fp, $test);
 
-        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, array('eol' => "\r\n"));
+        stream_filter_prepend($this->fp, 'horde_eol', STREAM_FILTER_READ, ['eol' => "\r\n"]);
         rewind($this->fp);
 
         $this->assertEquals(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Stream filter class to compute the CRC32 value of a string.
  *
@@ -13,7 +14,7 @@
  *   // CRC32 data in $params->crc32
  * </pre>
  *
- * Copyright 2011-2017 Horde LLC (http://www.horde.org/)
+ * Copyright 2011-2026 Horde LLC (http://www.horde.org/)
  *
  * See the enclosed file LICENSE for license information (LGPL). If you
  * did not receive this file, see http://www.horde.org/licenses/lgpl21.
@@ -55,7 +56,7 @@ class Horde_Stream_Filter_Crc32 extends php_user_filter
      */
     protected function _crc32Combine($crc1, $crc2, $len2)
     {
-        $odd = array(0xedb88320);
+        $odd = [0xedb88320];
         $row = 1;
 
         for ($n = 1; $n < 32; ++$n) {
@@ -74,7 +75,7 @@ class Horde_Stream_Filter_Crc32 extends php_user_filter
                 $crc1 = $this->_gf2MatrixTimes($even, $crc1);
             }
 
-            $len2>>=1;
+            $len2 >>= 1;
 
             /* If no more bits set, then done. */
             if ($len2 == 0) {
@@ -87,7 +88,7 @@ class Horde_Stream_Filter_Crc32 extends php_user_filter
                 $crc1 = $this->_gf2MatrixTimes($odd, $crc1);
             }
 
-            $len2>>= 1;
+            $len2 >>= 1;
         } while ($len2 != 0);
 
         $crc1 ^= $crc2;
