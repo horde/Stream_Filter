@@ -21,7 +21,7 @@
         "eol",
         "htmlspecialchars"
     ],
-    "time": "2026-04-02",
+    "time": "2026-04-22",
     "repositories": [],
     "require": {
         "php": "^7.4 || ^8"
@@ -33,6 +33,9 @@
     "autoload": {
         "psr-0": {
             "Horde_Stream_Filter": "lib/"
+        },
+        "psr-4": {
+            "Horde\\Stream\\Filter\\": "src/"
         }
     },
     "autoload-dev": {
