@@ -7,14 +7,12 @@ list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Stream_Filter
 authors:
-  -
-    name: Chuck Hagenbuch
+  - name: Chuck Hagenbuch
     user: chuck
     email: chuck@horde.org
     active: false
     role: lead
-  -
-    name: Michael Slusarz
+  - name: Michael Slusarz
     user: slusarz
     email: slusarz@horde.org
     active: false
@@ -39,3 +37,17 @@ keywords:
   - eol
   - htmlspecialchars
 vendor: horde
+
+quality:
+  phpstan:
+    level: 3
+ci-platform:
+  '8.0': not resolvable
+  '8.1': not resolvable
+  '8.2': not resolvable
+  '8.3': not resolvable
+  '8.4': not resolvable
+  '8.5': not resolvable
+  '8.6': not resolvable
+ci-platform-flags:
+  needs_installer_plugin: false
